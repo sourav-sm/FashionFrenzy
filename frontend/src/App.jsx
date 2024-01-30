@@ -7,6 +7,7 @@ import Shopcategory from './Pages/ShopCategory';
 import Cart from './Pages/Cart';
 import LoggingSignup from './Pages/LoggingSignup';
 import Product from './Pages/Product';
+import Footer from './Components/Footer/Footer';
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -26,8 +27,8 @@ function App() {
               <Route path='/cart' element={<Cart/>}/>
               <Route path='/login' element={<LoggingSignup/>}/>
            </Routes>
+           <Footer/>
         </BrowserRouter> 
-        
       </div>
   )
 }
