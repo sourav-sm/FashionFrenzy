@@ -32,10 +32,7 @@ const ProductDisplay=(props)=>{
                 <div className="productdisplay-right-price-new">${product.new_price}</div>
             </div>
             <div className="productdisplay-right-description">
-                A light nacxncn anczkjnnkncncncncadncdjjjjjjjjjjjjjjjjjjjjjjjjjjj
-                dcnjdncjdcnjdcndcnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
-                cnjancjdhncajncmxcnmnkakmcojqq
-                sncksjfiqnkjiojackmakcjajcmkfjcaopck
+            Wrap yourself in elegance with our premium linen summer dress. Effortlessly blending comfort and style, this wardrobe must-have promises a head-turning look for any occasion. Shop now and redefine your fashion statement!
             </div>
             <div className="productdisplay-right-size">
                 <h1>Select Size</h1>
