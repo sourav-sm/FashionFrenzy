@@ -18,7 +18,7 @@ function App() {
   return (
       <div>
         <BrowserRouter>
-           <Navbar/>
+           <Navbar style={{position:"fixed"}}/>
            <Routes>
               <Route path='/' element={<Shop/>}/>
               <Route path='/mens' element={<Shopcategory banner={men_banner} category="men"/>}/>

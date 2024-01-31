@@ -7,7 +7,7 @@
     border: 0;
 }
 .cartitems-format-main{
-    display: flex;
+    display: grid;
     grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr 1fr;
     align-items: center;
     gap: 75px;
@@ -23,7 +23,7 @@
 .carticon-product-icon{
     height: 62px;
 }
-.cartitems.remove-icon{
+.cartitems-remove-icon{
     width: 15px;
     margin: 0px 40px;
     cursor: pointer;
@@ -85,7 +85,7 @@
     height: 50px;
 }
 .cartitems-promobox button{
-    width: 170px;
+    width: 205px;
     height: 58px;
     font-size: 16px;
     background:black;
