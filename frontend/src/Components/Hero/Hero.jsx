@@ -23,8 +23,8 @@ const Hero=()=>{
             </div>
         </div>
         <div className="hero-right">
-            <img className="image" src={hero_image} alt="" />
-        </div>
+            <img  src={hero_image} alt="" />
+        </div>  
   </div>
   )
 }
