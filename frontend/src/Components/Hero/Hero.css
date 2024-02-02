@@ -62,10 +62,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    .image{
-        height: 650px;
-        width: 500px;
-    }
+
 }
 @media(max-width:1200px){
     .hero-left{
@@ -147,6 +144,7 @@
 @media(max-width:500px){
     .hero{
         display: flex;
+        flex-direction: column;
     }
     .hero-right{
         display: none;
