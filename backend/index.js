@@ -6,7 +6,7 @@ const jwt=require("jsonwebtoken")
 const multer=require("multer")
 const path=require("path")
 const cors=require("cors");
-const { error } = require("console");
+const { error, log } = require("console");
 
 app.use(express.json());
 app.use(cors());
@@ -133,6 +133,25 @@ app.post('/addproduct',async (req,res)=>{
         success:true,
         name:req.body.name,
     })
+})
+
+//creating API For deleting Products
+
+app.post('/removeproduct',async (req,res)=>{
+    await Product.findOneAndDelete({id:req.body.id});
+    console.log("Removed");
+    res.json({
+        success:true,
+        name:req.body.name
+    })
+})
+
+//creating API for getting all proucts
+//using this api we shws all data of website frontend
+app.get('/allproducts',async (req,res)=>{
+    let products = await Product.find({});
+    console.log("All products fetched");
+    res.send(products);
 })
 
 app.listen(port,(error)=>{
