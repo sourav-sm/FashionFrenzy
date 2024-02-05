@@ -119,7 +119,7 @@ app.post('/addproduct',async (req,res)=>{
         id=1;
     }
     const product=new Product({
-        id:id,
+        id:req.body.id,
         name:req.body.name,
         image:req.body.image,
         category:req.body.category,
