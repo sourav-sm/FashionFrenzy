@@ -11,7 +11,7 @@
 }
 .listproduct-format-main{
     display: grid;
-    grid-template-columns: 1fr 3fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 3fr 1.5fr 1.5fr 1fr 1fr;
     gap: 10px;
     width: 100%;
     padding: 20px 0px;
@@ -24,9 +24,9 @@
     align-items: center;
     font-weight: 500;
 }
-/* .listproduct-product-icon{
+.listproduct-product-icon{
     height: 80px;
-} */
+}
 .listproduct-remove-icon{
     cursor: pointer;
     margin: auto;
