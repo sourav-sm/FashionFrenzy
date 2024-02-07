@@ -5,12 +5,11 @@ import upload_area from '../../assets/upload_area.svg'
 const AddProduct = () => {
     const [image, setImage] = useState(false);
     const [productDetails, setProductDetails] = useState({
-        id: "",
         name: "",
         image: "",
         category: "Women",
-        old_prices: "", // Updated field name
-        new_prices: "", // Updated field name
+        old_price: "", // Updated field name
+        new_price: "", // Updated field name
     });
 
     const imageHandler = (e) => {
@@ -30,96 +29,86 @@ const AddProduct = () => {
         let formData = new FormData();
         formData.append('product', image);
 
-        try {
-            const uploadResponse = await fetch('http://localhost:4000/upload', {
+        // try {
+        //     const uploadResponse = await fetch('http://localhost:4000/upload', {
+        //         method: 'POST',
+        //         headers: {
+        //             Accept: 'application/json',
+        //         },
+        //         body: formData,
+        //     });
+
+        //     responseData = await uploadResponse.json();
+
+        //     if (responseData.success) {
+        //         product.image = responseData.image_url;
+        //         console.log(product);
+
+        //         const addProductResponse = await fetch('http://localhost:4000/addproduct', {
+        //             method: 'POST',
+        //             headers: {
+        //                 Accept: 'application/json',
+        //                 'Content-Type': 'application/json',
+        //             },
+        //             body: JSON.stringify(product),
+        //         });
+
+        //         const data = await addProductResponse.json();
+
+        //         if (data.success) {
+        //             alert("Product Added");
+        //         } else {
+        //             alert("Failed");
+        //         }
+        //     }
+        // } catch (error) {
+        //     console.error('Error during fetch:', error);
+        // }
+
+         await fetch('http://localhost:4000/upload', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',
                 },
                 body: formData,
-            });
+            }).then((resp)=>resp.json()).then((data)=>{responseData=data})
 
-            responseData = await uploadResponse.json();
+        //     // responseData = await uploadResponse.json();
 
             if (responseData.success) {
                 product.image = responseData.image_url;
                 console.log(product);
-
-                const addProductResponse = await fetch('http://localhost:4000/addproduct', {
-                    method: 'POST',
-                    headers: {
-                        Accept: 'application/json',
-                        'Content-Type': 'application/json',
+                await fetch('http://localhost:4000/addproduct',{
+                    method:'POST',
+                    headers:{
+                        Accept:'application/json',
+                        'Content-Type':'application/json',
                     },
-                    body: JSON.stringify(product),
-                });
-
-                const data = await addProductResponse.json();
-
-                if (data.success) {
-                    alert("Product Added");
-                } else {
-                    alert("Failed");
-                }
+                    body:JSON.stringify(product),
+                }).then((resp)=>resp.json()).then((data)=>{
+                    data.success?alert("Product Added"):alert("Failed");
+                })
             }
-        } catch (error) {
-            console.error('Error during fetch:', error);
-        }
-    };
-    
 
-    // const Add_Product = async () => {
-    //     console.log(productDetails);
+        //         const addProductResponse = await fetch('http://localhost:4000/addproduct', {
+        //             method: 'POST',
+        //             headers: {
+        //                 Accept: 'application/json',
+        //                 'Content-Type': 'application/json',
+        //             },
+        //             body: JSON.stringify(product),
+        //         });
+
+        //         const data = await addProductResponse.json();
+
+        //         if (data.success) {
+        //             alert("Product Added");
+        //         } else {
+        //             alert("Failed");
+        //         }
+        //     }
         
-    //     try {
-    //         // Step 1: Upload the image
-    //         let formData = new FormData();
-    //         formData.append('product', image);
-    
-    //         const uploadResponse = await fetch('http://localhost:4000/upload', {
-    //             method: 'POST',
-    //             body: formData,
-    //         });
-    
-    //         const uploadData = await uploadResponse.json();
-    
-    //         console.log('Upload Response:', uploadData);
-    
-    //         if (uploadData.success) {
-    //             // Step 2: Update productDetails with the image URL
-    //             const updatedProduct = { ...productDetails, image: uploadData.image_url };
-    
-    //             // Step 3: Add the product to the backend
-    //             const addProductResponse = await fetch('http://localhost:4000/addproduct', {
-    //                 method: 'POST',
-    //                 headers: {
-    //                     Accept: 'application/json',
-    //                     'Content-Type': 'application/json',
-    //                 },
-    //                 body: JSON.stringify(updatedProduct),
-    //             });
-    
-    //             const addProductData = await addProductResponse.json();
-    
-    //             console.log('Add Product Response:', addProductData);
-    
-    //             if (addProductData.success) {
-    //                 alert('Product Added');
-    //             } else {
-    //                 // Handle the case when the server responds with an error
-    //                 alert('Failed to add product. Server response: ' + addProductData.error);
-    //             }
-    //         } else {
-    //             // Handle the case when the image upload fails
-    //             alert('Failed to upload image. Server response: ' + uploadData.error);
-    //         }
-    //     } catch (error) {
-    //         // Handle any unexpected errors
-    //         console.error('Error adding product:', error);
-    //         alert('Error adding product. Please try again.');
-    //     }
-    // };
-    
+    };
     
     
 
@@ -132,11 +121,11 @@ const AddProduct = () => {
             <div className="addproduct-price">
                 <div className="addproduct-itemfield">
                     <p>Price</p>
-                    <input value={productDetails.old_prices} onChange={changeHandler} type="text" name="old_prices" placeholder="Type Here" />
+                    <input value={productDetails.old_price} onChange={changeHandler} type="text" name="old_price" placeholder="Type Here" />
                 </div>
                 <div className="addproduct-itemfield">
                     <p>Offer Price</p>
-                    <input value={productDetails.new_prices} onChange={changeHandler} type="text" name="new_prices" placeholder="Type Here" />
+                    <input value={productDetails.new_price} onChange={changeHandler} type="text" name="new_price" placeholder="Type Here" />
                 </div>
             </div>
             <div className="addproduct-itemfield">

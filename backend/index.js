@@ -76,36 +76,7 @@ const Product = mongoose.model("Product",{
     },
 })
 
-//same code using try and catch
-/**app.post('/addproduct', async (req, res) => {
-    try {
-        const product = new Product({
-            id: req.body.id,
-            name: req.body.name,
-            image: req.body.image,
-            category: req.body.category,
-            new_prices: req.body.new_prices,
-            old_prices: req.body.old_prices,
-        });
 
-        console.log(product);
-        
-        await product.save();
-        
-        console.log("saved");
-
-        res.json({
-            success: true,
-            name: req.body.name,
-        });
-    } catch (error) {
-        console.error("Error:", error);
-        res.status(500).json({
-            success: false,
-            error: "Internal Server Error",
-        });
-    }
-}); */
 
 
 // app.post('/addproduct',async (req,res)=>{
@@ -137,44 +108,40 @@ const Product = mongoose.model("Product",{
 
 app.post('/addproduct', async (req, res) => {
     try {
-        let products = await Product.find({});
-        let id;
+        // Find the last product in the database to determine the id of the new product
+        const lastProduct = await Product.findOne().sort({ id: -1 });
 
-        if (products.length > 0) {
-            let last_product_array = products.slice(-1);
-            let last_product = last_product_array[0];
-            id = last_product.id + 1;
-        } else {
-            id = 1;
-        }
+        // Calculate the id for the new product
+        let id = lastProduct ? lastProduct.id + 1 : 1;
 
+        // Create a new Product instance
         const product = new Product({
             id: id,
             name: req.body.name,
             image: req.body.image,
             category: req.body.category,
-            new_prices: req.body.new_prices,
-            old_prices: req.body.old_prices,
+            new_price: req.body.new_price,
+            old_price: req.body.old_price,
+            // other fields if any
         });
 
-        console.log(product);
-
+        // Save the new Product instance to the database
         await product.save();
 
-        console.log("saved");
+        console.log("Product saved successfully:", product);
 
-        res.json({
+        // Send a success response
+        res.status(201).json({
             success: true,
             name: req.body.name,
         });
     } catch (error) {
-        console.error("Error:", error);
-        res.status(500).json({
-            success: false,
-            error: "Internal Server Error",
-        });
+        // Handle errors
+        console.error("Error adding product:", error);
+        res.status(500).json({ error: "Failed to add product" });
     }
 });
+
 
 
 //creating API For deleting Products
