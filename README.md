@@ -1,9 +1,6 @@
 # Welcome to FashionFrenzy
 
-Hi! I'm your first Markdown file in **FashionFrenzy**. If you want to learn about FashionFrenzy, you can read me. If you want to play with FashionFrenzy, you can edit me. Once you have finished with me, you can create new files by opening the **file explorer** on the left corner of the navigation bar.
-
-
-# FashionFrenzy Website
+Hi! I'm your first Markdown file in **FashionFrenzy**. If you want to learn about FashionFrenzy, you can read me. If you want to play with FashionFrenzy, you can edit me. 
 *FashionFrenzy*, a full-stack e-commerce application built with **React.js, Node.js, Express, and MongoDB**. This project is structured into three main folders: frontend, backend, and admin, providing a comprehensive solution for managing an online store.
 
 ## Features
@@ -25,7 +22,7 @@ To get a local copy up and running, follow these simple steps:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/shopper-website.git` 
+   git clone https://github.com/sourav-sm/FashionFrenzy.git` 
 
 2.  Navigate to the project directory:
  
