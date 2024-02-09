@@ -1,4 +1,4 @@
-const port=4000;
+const port=process.env.PORT || 4000;
 const express=require("express")
 const app=express();
 const mongoose=require("mongoose");
@@ -6,14 +6,23 @@ const jwt=require("jsonwebtoken");//generate and varify token
 const multer=require("multer");//using that we can create image storage sysytem
 const path=require("path")
 const cors=require("cors");//accecss to react project
-const BASE_URL = process.env.BASE_URL
+const BASE_URL = process.env.BASE_URL//base
+require('dotenv').config();
 // const { error, log } = require("console");
+
 
 app.use(express.json());
 app.use(cors());
 
 //Database connection with mongodb
-mongoose.connect("mongodb+srv://developersourav135:44281219@cluster0.cim5m44.mongodb.net/e-commerce")
+mongoose.connect(process.env.DATABASE,{
+    useNewUrlParser: true,//This option is important for future compatibility. MongoDB made changes to the connection string parser to address certain issues and improve performance. While older versions of MongoDB allowed for connection strings without specifying this option, newer versions require it. Including this option ensures that Mongoose uses the latest URL parser, preventing any potential parsing errors and future deprecation warnings.
+    useUnifiedTopology: true//This option is essential for the proper functioning and efficiency of the MongoDB Node.js driver. It enables the use of the new Server Discovery and Monitoring engine, which improves the reliability and performance of the driver. It's especially important as MongoDB deprecates the legacy topology engine. Including this option ensures that Mongoose uses the recommended server discovery and monitoring mechanism, avoiding deprecation warnings and ensuring compatibility with future MongoDB versions.
+})
+.then(() => console.log("MongoDB connected successfully"))
+.catch(err => console.error("MongoDB connection error:", err));
+
+//mongoose.connect("mongodb+srv://developersourav135:44281219@cluster0.cim5m44.mongodb.net/e-commerce")
 
 //API CREATION
 app.get("/",(req,res)=>{
