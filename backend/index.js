@@ -46,8 +46,8 @@ app.use('/images',express.static('upload/images'))
 app.post("/upload",upload.single('product'),(req,res)=>{
     res.json({
         success:1,
-         image_url:`${BASE_URL}/images/${req.file.filename }`
-        //image_url: `https://fashion-frenzy-pied.vercel.app/images/${req.file.filename}`
+         //image_url:`${BASE_URL}/images/${req.file.filename }`
+        image_url: `https://backend3-j9x6.onrender.com/images/${req.file.filename}`
     })
 })
 
