@@ -8,7 +8,8 @@ const Popular = ()=>{
    const [popularProducts,setPopularProducts]=useState([]);
 
    useEffect(()=>{
-      fetch('http://localhost:4000/propularinwomen')
+      // fetch('http://localhost:4000/propularinwomen')
+      fetch('https://fashion-frenzy-pied.vercel.app/propularinwomen')
       .then((response)=>response.json())
       .then((data)=>setPopularProducts(data));
    },[]);
