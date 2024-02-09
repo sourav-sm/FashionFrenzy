@@ -18,7 +18,8 @@ const LogingSignup=()=>{
     const login = async () =>{
         console.log("login function executed",formData);
         let responseData;
-        await fetch('http://localhost:4000/login',{
+        // await fetch('http://localhost:4000/login',{
+        await fetch('https://fashion-frenzy-pied.vercel.app/login',{
             method:'POST',
             headers:{
                 Accept:'application/form-data',
@@ -38,7 +39,8 @@ const LogingSignup=()=>{
     const signup = async () =>{
         console.log("signup function executed",formData);
         let responseData;
-        await fetch('http://localhost:4000/signup',{
+        // await fetch('http://localhost:4000/signup',{
+        await fetch('https://fashion-frenzy-pied.vercel.app/signup',{
             method:'POST',
             headers:{
                 Accept:'application/form-data',
