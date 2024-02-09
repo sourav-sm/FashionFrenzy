@@ -18,13 +18,13 @@ const ShopContextProvider = (props) =>{
         
         useEffect(()=>{
             // fetch('http://localhost:4000/allproducts')
-            fetch('https://fashion-frenzy-pied.vercel.app/allproducts')
+            fetch('https://backend3-j9x6.onrender.com/allproducts')
             .then((response)=>response.json())
             .then((data)=>setAll_Product(data))
 
             if(localStorage.getItem('auth-token')){
                 // fetch('http://localhost:4000/getcart',{
-                fetch('https://fashion-frenzy-pied.vercel.app/getcart',{
+                fetch('https://backend3-j9x6.onrender.com/getcart',{
                     method:'POST',
                     headers:{
                         Accept:'application/form-data',
@@ -41,7 +41,7 @@ const ShopContextProvider = (props) =>{
             setCartItems((prev)=>({...prev,[itemId]:prev[itemId]+1}))
             if(localStorage.getItem('auth-token')){
                 // fetch('http://localhost:4000/addtocart',{
-                fetch('https://fashion-frenzy-pied.vercel.app/addtocart',{
+                fetch('https://backend3-j9x6.onrender.com/addtocart',{
                     method:'POST',
                     headers:{
                         Accept:'application/form-data',
@@ -59,7 +59,7 @@ const ShopContextProvider = (props) =>{
             setCartItems((prev)=>({...prev,[itemId]:prev[itemId]-1}))
             if(localStorage.getItem('auth-token')){
                 // fetch('http://localhost:4000/removefromcart',{
-                fetch('https://fashion-frenzy-pied.vercel.app/removefromcart',{
+                fetch('https://backend3-j9x6.onrender.com/removefromcart',{
                     method:'POST',
                     headers:{
                         Accept:'application/form-data',

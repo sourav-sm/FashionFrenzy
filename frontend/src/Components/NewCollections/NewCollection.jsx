@@ -8,7 +8,7 @@ const NewCollections = () =>{
 
   useEffect(()=>{
     // fetch('http://localhost:4000/newcollections')
-    fetch('https://fashion-frenzy-pied.vercel.app/newcollections')
+    fetch('https://backend3-j9x6.onrender.com/newcollections')
     .then((response)=>response.json())
     .then((data)=>setNew_collection(data));
   },[])
