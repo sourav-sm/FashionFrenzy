@@ -7,7 +7,7 @@ const AddProduct = () => {
     const [productDetails, setProductDetails] = useState({
         name: "",
         image: "",
-        category: "Women",
+        category: "women",
         old_price: "", // Updated field name
         new_price: "", // Updated field name
     });
