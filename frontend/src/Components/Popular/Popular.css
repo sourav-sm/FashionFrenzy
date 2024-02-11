@@ -19,7 +19,7 @@
 .popular-item{
     margin-top: 50px;
     display: flex;
-    gap: 30px;
+    gap: 100px;
 }
 @media (max-width:1280px) {
     .popular{

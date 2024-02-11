@@ -6,7 +6,8 @@
     gap: 50px;
 }
 .footer-logo{
-    display: flex;
+    display: flex;flex-direction: column;
+    
     align-items: center;
     gap: 20px;
 }
