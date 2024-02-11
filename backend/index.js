@@ -6,7 +6,8 @@ const jwt=require("jsonwebtoken");//generate and varify token
 const multer=require("multer");//using that we can create image storage sysytem
 const path=require("path")
 const cors=require("cors");//accecss to react project
-const BASE_URL = process.env.BASE_URL//base
+// const BASE_URL = process.env.BASE_URL//base
+const BASE_URL = process.env.BASE_URL || 'http://localhost:4000'
 require('dotenv').config();
 // const { error, log } = require("console");
 
@@ -16,8 +17,8 @@ app.use(cors());
 
 //Database connection with mongodb
 mongoose.connect(process.env.DATABASE,{
-    useNewUrlParser: true,//This option is important for future compatibility. MongoDB made changes to the connection string parser to address certain issues and improve performance. While older versions of MongoDB allowed for connection strings without specifying this option, newer versions require it. Including this option ensures that Mongoose uses the latest URL parser, preventing any potential parsing errors and future deprecation warnings.
-    useUnifiedTopology: true//This option is essential for the proper functioning and efficiency of the MongoDB Node.js driver. It enables the use of the new Server Discovery and Monitoring engine, which improves the reliability and performance of the driver. It's especially important as MongoDB deprecates the legacy topology engine. Including this option ensures that Mongoose uses the recommended server discovery and monitoring mechanism, avoiding deprecation warnings and ensuring compatibility with future MongoDB versions.
+   // useNewUrlParser: true,//This option is important for future compatibility. MongoDB made changes to the connection string parser to address certain issues and improve performance. While older versions of MongoDB allowed for connection strings without specifying this option, newer versions require it. Including this option ensures that Mongoose uses the latest URL parser, preventing any potential parsing errors and future deprecation warnings.
+    //useUnifiedTopology: true//This option is essential for the proper functioning and efficiency of the MongoDB Node.js driver. It enables the use of the new Server Discovery and Monitoring engine, which improves the reliability and performance of the driver. It's especially important as MongoDB deprecates the legacy topology engine. Including this option ensures that Mongoose uses the recommended server discovery and monitoring mechanism, avoiding deprecation warnings and ensuring compatibility with future MongoDB versions.
 })
 .then(() => console.log("MongoDB connected successfully"))
 .catch(err => console.error("MongoDB connection error:", err));
@@ -46,8 +47,7 @@ app.use('/images',express.static('upload/images'))
 app.post("/upload",upload.single('product'),(req,res)=>{
     res.json({
         success:1,
-         image_url:`${BASE_URL}/images/${req.file.filename }`
-        //image_url: `https://backend3-j9x6.onrender.com/images/${req.file.filename}`
+         //image_url:`${BASE_URL}/images/${req.file.filename }`
     })
 })
 
@@ -87,36 +87,6 @@ const Product = mongoose.model("Product",{
     },
 })
 
-
-
-
-// app.post('/addproduct',async (req,res)=>{
-//     let products=await Product.find({});
-//     let id;
-//     if(products.length>0){
-//         let last_product_array=products.slice(-1);
-//         let last_product=last_product_array[0];
-//         id=last_product.id+1;
-//     }else{
-//         id=1;
-//     }
-//     const product=new Product({
-//         id:req.body.id,
-//         name:req.body.name,
-//         image:req.body.image,
-//         category:req.body.category,
-//         new_prices:req.body.new_prices,
-//         old_prices:req.body.old_prices,
-//     })
-//     console.log(product);
-//     await product.save();
-//     console.log("saved");
-//     res.json({
-//         success:true,
-//         name:req.body.name,
-//     })
-// })
-
 app.post('/addproduct', async (req, res) => {
     try {
         // Find the last product in the database to determine the id of the new product
@@ -133,7 +103,6 @@ app.post('/addproduct', async (req, res) => {
             category: req.body.category,
             new_price: req.body.new_price,
             old_price: req.body.old_price,
-            // other fields if any
         });
 
         // Save the new Product instance to the database
