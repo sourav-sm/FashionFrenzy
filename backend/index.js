@@ -1,4 +1,4 @@
-const port=process.env.PORT || 4000;
+const PORT=process.env.PORT || 4000;
 const express=require("express")
 const app=express();
 const mongoose=require("mongoose");
@@ -46,8 +46,8 @@ app.use('/images',express.static('upload/images'))
 app.post("/upload",upload.single('product'),(req,res)=>{
     res.json({
         success:1,
-         //image_url:`${BASE_URL}/images/${req.file.filename }`
-        image_url: `https://backend3-j9x6.onrender.com/images/${req.file.filename}`
+         image_url:`${BASE_URL}/images/${req.file.filename }`
+        //image_url: `https://backend3-j9x6.onrender.com/images/${req.file.filename}`
     })
 })
 
@@ -309,9 +309,9 @@ app.post('/getcart',fetchUser,async(req,res)=>{
     res.json(userData.cartData);
 })
 
-app.listen(port,(error)=>{
+app.listen(PORT,(error)=>{
     if(!error){
-        console.log("Server is running "+ port);
+        console.log(`Server is running  ${PORT}`);
     }else{
         console.log("Error :"+error)
     }
