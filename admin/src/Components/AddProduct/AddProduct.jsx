@@ -110,6 +110,9 @@ const AddProduct = () => {
         category: "women", // Corrected lowercase value
         old_price: "",
         new_price: "",
+        category: "women",
+        old_price: "", // Updated field name
+        new_price: "", // Updated field name
     });
 
     const imageHandler = (e) => {
