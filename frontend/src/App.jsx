@@ -11,6 +11,7 @@ import Footer from './Components/Footer/Footer';
 import men_banner from './Components/Assets/banner_mens.png';
 import women_banner from './Components/Assets/banner_women.png';
 import kid_banner from './Components/Assets/banner_kids.png';
+import NewCollections from './Components/NewCollections/NewCollection';
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -21,6 +22,7 @@ function App() {
            <Navbar style={{position:"fixed"}}/>
            <Routes>
               <Route path='/' element={<Shop/>}/>
+              <Route path="/new-collections" element={NewCollections} />
               <Route path='/mens' element={<Shopcategory banner={men_banner} category="men"/>}/>
               <Route path='/womens' element={<Shopcategory banner={women_banner} category="women"/>}/>
               <Route path='/kids' element={<Shopcategory banner={kid_banner} category="kid"/>}/>

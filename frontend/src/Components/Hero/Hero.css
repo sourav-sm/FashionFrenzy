@@ -4,6 +4,7 @@
 .hero{
     height: 100vh;
     background: linear-gradient(180deg,#fde1ff,#e1ffea22 60%);
+    /* background: linear-gradient(180deg,#1b5aec,#0f6da822 60%); */
     display: flex;
 }
 .hero-left{
@@ -16,23 +17,19 @@
     line-height: 1.1;
 }
 .hero-left h2{
-    color: #090909;
-    font-size: 26px;
+    font-style:oblique;
+    color: #0cf461;
+    font-size: 50px;
     font-weight: 600;
 }
 .hero-left p{
-    color: #171717;
-    font-size: 90px;
+    color: #2811f0;
+    font-size: 50px;
     font-weight: 700;
 }
 .hero-left i{
-    color: #171717;
+    color: #ef1212;
     font-size: 90px;
-    font-weight: 700;
-}
-.hero-left i{
-    color: #171717;
-    font-size: 80px;
     font-weight: 700;
 }
 .hero-hand-icon{
