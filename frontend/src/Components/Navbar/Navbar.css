@@ -12,7 +12,7 @@
     padding: 16px;
     box-shadow: 0 1px 3px -2px black;
     align-items: center;
-    /* background: rgb(10, 82, 237); */
+    background: #6b71f1;
 }
 
 .nav-logo{
@@ -26,7 +26,7 @@
 }
 
 .nav-logo p{
-    color: #171717;
+    color: #070606;
     font-size: 38px;
     font-weight: 600;
 }
@@ -37,7 +37,7 @@
     align-items: center;
     list-style: none;/**so that dots of list are not shown **/
     gap: 50px;
-    color: #626262;
+    color: #fb0b0b;
     font-size: 20px;
     font-weight: 500;
 }
@@ -49,6 +49,9 @@
     justify-content: center;
     cursor: pointer;
     gap: 3px;
+    a{
+        color: #070606;
+    }
 }
 
 .nav-menu hr{
@@ -73,7 +76,7 @@
     border-radius: 75px;
     color: #515151;
     font-size: 20px;
-    background: white;
+    background: red;
     cursor: pointer;
 }
 

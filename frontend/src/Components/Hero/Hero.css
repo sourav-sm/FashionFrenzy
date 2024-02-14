@@ -28,7 +28,7 @@
 }
 .hero-hand-icon-pgp{
     color: #0664f2;
-    font-size:20px;
+    font-size:15px;
     font-weight: 500;
 }
 .hero-hand-icon{
@@ -84,7 +84,8 @@
         font-size: 18px;
     }
     .hero-right img{
-        width: 500px;
+        height: 800px;
+        width: 650px;
     }
 }
 @media(max-width:1024px){
@@ -109,7 +110,8 @@
         font-size: 16px;
     }
     .hero-right img{
-        width: 400px;
+        height: 700px;
+        width: 550px;
     }
 }
 @media(max-width:800px){
@@ -134,7 +136,8 @@
         font-size: 13px;
     }
     .hero-right img{
-        width: 300px;
+        height: 700px;
+        width: 450px;
     }
 }
 @media(max-width:500px){
