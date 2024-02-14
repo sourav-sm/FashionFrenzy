@@ -75,14 +75,14 @@
     outline: none;
     border: 1px solid #7a7a7a;
     border-radius: 75px;
-    color: #515151;
+    color: #ffffff;
     font-size: 20px;
     background: red;
     cursor: pointer;
 }
 
 .nav-login-cart button:active{
-    background: #f3f3f3;
+    background: #09be0c;
 }
 
 .nav-cart-count{
