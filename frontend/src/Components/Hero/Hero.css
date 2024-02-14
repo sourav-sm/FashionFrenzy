@@ -3,8 +3,8 @@
   }
 .hero{
     height: 100vh;
-    background: linear-gradient(180deg,#fde1ff,#e1ffea22 60%);
-    /* background: linear-gradient(180deg,#1b5aec,#0f6da822 60%); */
+    /* background: linear-gradient(180deg,#fde1ff,#e1ffea22 60%); */
+     background: #9497f3; 
     display: flex;
 }
 .hero-left{
@@ -14,23 +14,22 @@
     justify-content: center;
     gap: 20px;
     padding-left: 180px;
-    line-height: 1.1;
+    line-height: 1.1; 
 }
 .hero-left h2{
-    font-style:oblique;
-    color: #0cf461;
-    font-size: 50px;
-    font-weight: 600;
+    color: #0428f2;
+    font-size: 30px;
+    font-weight: bold;
 }
-.hero-left p{
-    color: #2811f0;
+.hero-hand-icon{
+    color: #000006;
     font-size: 50px;
     font-weight: 700;
 }
-.hero-left i{
-    color: #ef1212;
-    font-size: 90px;
-    font-weight: 700;
+.hero-hand-icon-pgp{
+    color: #0664f2;
+    font-size:20px;
+    font-weight: 500;
 }
 .hero-hand-icon{
     display: flex;
