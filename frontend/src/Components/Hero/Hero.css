@@ -60,6 +60,10 @@
     justify-content: center;
 
 }
+.hero-right img{
+    height: 660px;
+    width: 650px;
+}
 @media(max-width:1200px){
     .hero-left{
         padding-left: 100px;
