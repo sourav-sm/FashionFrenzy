@@ -12,7 +12,8 @@
     padding: 16px;
     box-shadow: 0 1px 3px -2px black;
     align-items: center;
-    background: #6b71f1;
+    /* background: #6b71f1; */
+    background: #c0c3f9; 
 }
 
 .nav-logo{
