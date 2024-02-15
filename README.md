@@ -30,12 +30,13 @@ To get a local copy up and running, follow these simple steps:
     
 3.  Install dependencies:
     # For frontend
-    cd frontend
+    cd frontend <br/>
     npm run dev 
     
     # For backend
-    cd ../backend
-    npm install
+    cd ../backend <br/>
+    npm install <br/>
+    npm start
     
     # For admin panel
     cd ../admin
