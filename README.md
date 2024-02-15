@@ -41,7 +41,7 @@ To get a local copy up and running, follow these simple steps:
     # For admin panel
     cd ../admin <br/>
     npm install <br/>
-    mpm run dev
+    npm run dev
     
 
 ## Usage
