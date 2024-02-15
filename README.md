@@ -34,13 +34,14 @@ To get a local copy up and running, follow these simple steps:
     npm run dev 
     
     # For backend
-    cd ../backend <br/>
+    cd backend <br/>
     npm install <br/>
     npm start
     
     # For admin panel
-    cd ../admin
-    npm install` 
+    cd ../admin <br/>
+    npm install <br/>
+    mpm run dev
     
 
 ## Usage
