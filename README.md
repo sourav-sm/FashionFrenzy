@@ -2,6 +2,13 @@
 
 Hi! I'm your first Markdown file in **FashionFrenzy**. If you want to learn about FashionFrenzy, you can read me. If you want to play with FashionFrenzy, you can edit me. 
 *FashionFrenzy*, a full-stack e-commerce application built with **React.js, Node.js, Express, and MongoDB**. This project is structured into three main folders: frontend, backend, and admin, providing a comprehensive solution for managing an online store.
+<br/>
+
+##FashionFrenzy Website
+
+--![image_3](https://github.com/sourav-sm/FashionFrenzy/assets/116539402/f3e5509b-8e3f-4c22-aae1-db14d946422d)
+
+
 
 ## Features
 
@@ -26,17 +33,23 @@ To get a local copy up and running, follow these simple steps:
 
 2.  Navigate to the project directory:
  
-    `cd shopper-website` 
+    `cd FashionFrenzy` 
     
 3.  Install dependencies:
     # For frontend
-    cd frontend <br/>
-    npm run dev 
+    `cd frontend` <br/>
+    `npm i`<br/>
     
     # For backend
-    cd backend <br/>
-    npm install <br/>
-    npm start
+    `cd backend` <br/>
+    `npm init` <br/>
+    `npm i express`<br/>
+    `npm i mongoose`<br/>
+    `npm i multer`<br/>
+    `npm i cors`<br/>
+
+    #For Database
+    Create a Mongodb Atlass Url,Next create a .env file in which paste ypur mongodb atlas url and in place of base url http://localhost:4000
     
     # For admin panel
     cd ../admin <br/>
