@@ -42,7 +42,11 @@ To get a local copy up and running, follow these simple steps:
     # For frontend
     `cd frontend` <br/>
     `npm i`<br/>
+    `npm run dev`
     
+   # For Database
+    Create a Mongodb Atlass Url,Next create a .env file in which paste ypur mongodb atlas url and in place of base url http://localhost:4000
+
     # For backend
     `cd backend` <br/>
     `npm init` <br/>
@@ -50,47 +54,16 @@ To get a local copy up and running, follow these simple steps:
     `npm i mongoose`<br/>
     `npm i multer`<br/>
     `npm i cors`<br/>
-
-    #For Database
-    Create a Mongodb Atlass Url,Next create a .env file in which paste ypur mongodb atlas url and in place of base url http://localhost:4000
+    `npm start`
     
     # For Admin Panel
     `cd frontend` <br/>
     `npm i`<br/>
-    
-
-## Usage
-
-1.  **Run Backend Server**:
-    
-    bashCopy code
-    
-    `# Navigate to backend directory
-    cd backend
-    # Start the server
-    npm run dev` 
-    
-2.  **Run Frontend**:
-    
-    bashCopy code
-    
-    `# Navigate to frontend directory
-    cd frontend
-    # Start the frontend application
-    npm start` 
-    
-3.  **Run Admin Panel**:
-    
-    bashCopy code
-    
-    `# Navigate to admin directory
-    cd admin
-    # Start the admin panel
-    npm run dev` 
+    `npm run dev`
     
 4.  Access the application in your browser:
     
-    -   Frontend: http://localhost:3000
+    -   Frontend: http://localhost:5173/
     -   Admin Panel: http://localhost:3000/admin
 
 ## Contributing
