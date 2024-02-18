@@ -54,10 +54,9 @@ To get a local copy up and running, follow these simple steps:
     #For Database
     Create a Mongodb Atlass Url,Next create a .env file in which paste ypur mongodb atlas url and in place of base url http://localhost:4000
     
-    # For admin panel
-    cd ../admin <br/>
-    npm install <br/>
-    npm run dev
+    # For Admin Panel
+    `cd frontend` <br/>
+    `npm i`<br/>
     
 
 ## Usage
@@ -69,7 +68,7 @@ To get a local copy up and running, follow these simple steps:
     `# Navigate to backend directory
     cd backend
     # Start the server
-    npm start` 
+    npm run dev` 
     
 2.  **Run Frontend**:
     
@@ -87,7 +86,7 @@ To get a local copy up and running, follow these simple steps:
     `# Navigate to admin directory
     cd admin
     # Start the admin panel
-    npm start` 
+    npm run dev` 
     
 4.  Access the application in your browser:
     
