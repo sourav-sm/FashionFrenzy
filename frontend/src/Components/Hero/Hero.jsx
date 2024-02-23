@@ -6,6 +6,8 @@ import hero_image from '../Assets/model_big1.jpg';
 import { Link } from "react-router-dom";
 
 const Hero = () => {
+   
+
   return (
     <div className="hero">
       <div className="hero-left">
@@ -17,9 +19,9 @@ const Hero = () => {
         </div>
         <div className="hero-hand-icon-pgp">
           Unwrap convenience, shop with ease, and indulge <br/>in endless possibilities with us!
-          </div>
-        <Link to="/new-collections" className="hero-latest-btn">
-          <div>Latest Collection</div>
+        </div>
+        <Link to="#latest-collection" className="hero-latest-btn" onClick={() => setCollections("new-collections")}>
+          Latest Collection
           <img src={arrow_icon} alt="" />
         </Link>
       </div>
