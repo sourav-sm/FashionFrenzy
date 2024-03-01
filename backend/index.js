@@ -16,6 +16,10 @@ const stripe=require("stripe")("sk_test_51OpVHpSIyGZ3BZDjIlASplaGias67Ha2kFvLUs4
 app.use(express.json());
 app.use(cors());
 
+app.use(cors({
+    origin: 'https://fashion-frenzy-lemon.vercel.app/'
+  }));
+
 //Database connection with mongodb
 mongoose.connect(process.env.DATABASE,{
    // useNewUrlParser: true,//This option is important for future compatibility. MongoDB made changes to the connection string parser to address certain issues and improve performance. While older versions of MongoDB allowed for connection strings without specifying this option, newer versions require it. Including this option ensures that Mongoose uses the latest URL parser, preventing any potential parsing errors and future deprecation warnings.
