@@ -16,9 +16,6 @@ const stripe=require("stripe")("sk_test_51OpVHpSIyGZ3BZDjIlASplaGias67Ha2kFvLUs4
 app.use(express.json());
 app.use(cors());
 
-app.use(cors({
-    origin: 'https://fashion-frenzy-lemon.vercel.app/'
-  }));
 
 //Database connection with mongodb
 mongoose.connect(process.env.DATABASE,{
