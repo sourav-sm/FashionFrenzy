@@ -2,9 +2,40 @@ import React, { useContext } from "react";
 import  './CartItems.css'
 import { ShopContext } from "../../Context/ShopContext";
 import remove_icon from '../Assets/cart_cross_icon.png'
+import {loadStripe} from '@stripe/stripe-js';//for payment intregation
+
+
 
 const CartItems= ()=>{
     const {getTotalCartAmount,all_product,cartItems,removeFromCart}=useContext(ShopContext);
+
+    //for payment intregation
+    const makepayment= async()=>{
+        const stripe = await loadStripe("pk_test_51OpVHpSIyGZ3BZDjKKoAKQ8IZJbLm3xLxkUrMtkuvx4LCCKTcuXeNS42JWaVkgn3RJSJQAlHP8C0x9uD52PODDg500picRPBvt");
+        
+        const body={
+            products:cartItems
+        }
+        const headers = {
+            "Content-Type":"application/json"
+        }
+        //fetching payment-details from backend
+        const response = await fetch("http://localhost:4000/create-checkout-session",{
+            method:"POST",
+            headers:headers,
+            body:JSON.stringfy(body)
+        })
+
+        const session = await response.json();
+
+        const result = stripe.redirectToCheckout({
+            sessionId:session.id
+        })
+        if(result.error){
+            console.log(result.error);
+        }
+    }
+
     return (
         <div className="cartitems">
            <div className="cartitems-format-main">
@@ -51,7 +82,7 @@ const CartItems= ()=>{
                         <h3>${getTotalCartAmount()}</h3>
                     </div>
                 </div>
-                <button>PROCEED TO PAYMENT</button>
+                <button onClick={makepayment}>PROCEED TO PAYMENT</button>
             </div>
             <div className="cartitems-promocode">
                 <p>If you have any promo code, Enter it here</p>
