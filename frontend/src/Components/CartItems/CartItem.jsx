@@ -20,10 +20,11 @@ const CartItems= ()=>{
             "Content-Type":"application/json"
         }
         //fetching payment-details from backend
-        const response = await fetch("http://localhost:4000/create-checkout-session",{
+        //const response = await fetch("http://localhost:4000/create-checkout-session",{
+        const response = await fetch("https://backend3-j9x6.onrender.com/create-checkout-session",{
             method:"POST",
             headers:headers,
-            body:JSON.stringfy(body)
+            body:JSON.stringify(body)
         })
 
         const session = await response.json();

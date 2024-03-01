@@ -7,10 +7,11 @@ const jwt=require("jsonwebtoken");//generate and varify token
 const multer=require("multer");//using that we can create image storage sysytem
 const path=require("path")
 const cors=require("cors");//accecss to react project
-const BASE_URL = process.env.BASE_URL//base
+//const BASE_URL = process.env.BASE_URL//base
+const BASE_URL = "https://backend3-j9x6.onrender.com"
 require('dotenv').config();
 // const { error, log } = require("console");
-
+const stripe=require("stripe")("sk_test_51OpVHpSIyGZ3BZDjIlASplaGias67Ha2kFvLUs4Qi6zuVF7Glsc04ZppOlzoIUaY7d0QVdWiWVcliMTjQj9i9pxF00YaHPBYqe")
 
 app.use(express.json());
 app.use(cors());
@@ -271,11 +272,38 @@ app.post('/removefromcart',fetchUser,async(req,res)=>{
     res.send("Removed")
 })
 
-//creating endpoint toget cartdata
+//creating endpoint to get cartdata
 app.post('/getcart',fetchUser,async(req,res)=>{
     console.log('GetCart');
     let userData = await Users.findOne({_id:req.user.id});
     res.json(userData.cartData);
+})
+
+
+//creating endpoint for payment details
+app.post('/create-checkout-session',async(req,res)=>{
+    const {product} =  req.body;
+    // console.log(product);
+
+    const lineItems = product.map((product)=>({
+        price_data:{
+            currency:"dlr",
+            product_data:{
+                name:product.dish
+            },
+            unit_amount:product.price*100,//so that incovert to int from decimal
+        },
+        quantity:product.qnty
+    }))
+    const session = await stripe.checkout.sessions.create({
+        payment_methods_types:["card"],
+        line_items:lineItems,
+        mode:"payment",
+        success_url:"https://fashion-frenzy-lemon.vercel.app/success",
+        cancel_url:"https://fashion-frenzy-lemon.vercel.app/cancel"
+    });
+    res.json({id:session.id})
+
 })
 
 app.listen(PORT,(error)=>{
@@ -285,3 +313,4 @@ app.listen(PORT,(error)=>{
         console.log("Error :"+error)
     }
 })
+
