@@ -1,5 +1,6 @@
 import React, { createContext, useEffect, useState } from "react";
 // import all_product from "../Components/Assets/all_product"
+
 export const ShopContext = createContext(null);
 
 const getDefaultCart = ()=>{
@@ -16,13 +17,13 @@ const ShopContextProvider = (props) =>{
         const [cartItems,setCartItems]=useState(getDefaultCart());
         
         useEffect(()=>{
-             //fetch('http://localhost:4000/allproducts')
+            // fetch('http://localhost:4000/allproducts')
             fetch('https://backend3-j9x6.onrender.com/allproducts')
             .then((response)=>response.json())
             .then((data)=>setAll_Product(data))
 
             if(localStorage.getItem('auth-token')){
-                 //fetch('http://localhost:4000/getcart',{
+                // fetch('http://localhost:4000/getcart',{
                 fetch('https://backend3-j9x6.onrender.com/getcart',{
                     method:'POST',
                     headers:{
@@ -39,7 +40,7 @@ const ShopContextProvider = (props) =>{
         const addToCart=(itemId)=>{
             setCartItems((prev)=>({...prev,[itemId]:prev[itemId]+1}))
             if(localStorage.getItem('auth-token')){
-               //fetch('http://localhost:4000/addtocart',{
+                // fetch('http://localhost:4000/addtocart',{
                 fetch('https://backend3-j9x6.onrender.com/addtocart',{
                     method:'POST',
                     headers:{
@@ -57,7 +58,7 @@ const ShopContextProvider = (props) =>{
         const removeFromCart=(itemId)=>{
             setCartItems((prev)=>({...prev,[itemId]:prev[itemId]-1}))
             if(localStorage.getItem('auth-token')){
-                //fetch('http://localhost:4000/removefromcart',{
+                // fetch('http://localhost:4000/removefromcart',{
                 fetch('https://backend3-j9x6.onrender.com/removefromcart',{
                     method:'POST',
                     headers:{
@@ -71,34 +72,6 @@ const ShopContextProvider = (props) =>{
                 .then((data)=>console.log(data));
             }
         }
-        
-        //payment intrgation
-        // const makePayment = async()=>{
-        //     const stripe = await loadStripe("pk_test_51OpVHpSIyGZ3BZDjKKoAKQ8IZJbLm3xLxkUrMtkuvx4LCCKTcuXeNS42JWaVkgn3RJSJQAlHP8C0x9uD52PODDg500picRPBvt");
-    
-        //     const body = {
-        //         products:cartItems
-        //     }
-        //     //console.log("products are"+products)
-        //     const headers = {
-        //         "Content-Type":"application/json"
-        //     }
-        //     const response = await fetch("http://localhost:4000/api/create-checkout-session",{
-        //         method:"POST",
-        //         headers:headers,
-        //         body:JSON.stringify(body)
-        //     });
-    
-        //     const session = await response.json();
-    
-        //     const result = stripe.redirectToCheckout({
-        //         sessionId:session.id
-        //     });
-            
-        //     if(result.error){
-        //         console.log(result.error);
-        //     }
-        // }
         
         //created logic of getTotalCartAmount in th cart
         const getTotalCartAmount = ()=>{
@@ -123,14 +96,9 @@ const ShopContextProvider = (props) =>{
             }
             return totalItem;
         }
-        //logic for empty cart
-        const clearCartItems = () => {
-            setCartItems([]);
-        };
-
 
         //sending value of throw context api
-        const contextValue = {getTotalCartItems,getTotalCartAmount,all_product,cartItems,addToCart,removeFromCart,clearCartItems};
+        const contextValue = {getTotalCartItems,getTotalCartAmount,all_product,cartItems,addToCart,removeFromCart};
 
     return (
         <ShopContext.Provider value={contextValue}>
