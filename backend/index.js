@@ -25,7 +25,7 @@ const stripe = require("stripe")(apiKey);
 const { v4: uuidv4 } = require("uuid");
 
 app.use(express.json());
-app.use(cors());
+// app.use(cors());
 
 const MongoDB_URL = process.env.MONGODB_URI
 //Database connection with mongodb
