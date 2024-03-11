@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
-// import all_product from "../Components/Assets/all_product"
+//import all_product from "../Components/Assets/all_product"
 
 export const ShopContext = createContext(null);
 
@@ -12,6 +12,8 @@ const getDefaultCart = ()=>{
 }
 
 const ShopContextProvider = (props) =>{
+        
+      //const contextValue={all_product};
 
         const [all_product,setAll_Product] = useState([]);
         const [cartItems,setCartItems]=useState(getDefaultCart());
@@ -24,7 +26,7 @@ const ShopContextProvider = (props) =>{
 
             if(localStorage.getItem('auth-token')){
                 // fetch('http://localhost:4000/getcart',{
-                fetch('https://backend3-j9x6.onrender.com/getcart',{
+               fetch('https://backend3-j9x6.onrender.com/getcart',{
                     method:'POST',
                     headers:{
                         Accept:'application/form-data',
@@ -58,7 +60,7 @@ const ShopContextProvider = (props) =>{
         const removeFromCart=(itemId)=>{
             setCartItems((prev)=>({...prev,[itemId]:prev[itemId]-1}))
             if(localStorage.getItem('auth-token')){
-                // fetch('http://localhost:4000/removefromcart',{
+                 //fetch('http://localhost:4000/removefromcart',{
                 fetch('https://backend3-j9x6.onrender.com/removefromcart',{
                     method:'POST',
                     headers:{

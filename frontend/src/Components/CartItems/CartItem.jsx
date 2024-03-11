@@ -1,41 +1,42 @@
-import React, { useContext } from "react";
+import React, { useContext ,useState} from "react";
 import  './CartItems.css'
 import { ShopContext } from "../../Context/ShopContext";
 import remove_icon from '../Assets/cart_cross_icon.png'
-import {loadStripe} from '@stripe/stripe-js';//for payment intregation
-
-
-
+//import {loadStripe} from '@stripe/stripe-js';//for payment intregation
+import StripeCheckout from 'react-stripe-checkout'
+//const apiKey="pk_test_51OpVHpSIyGZ3BZDjKKoAKQ8IZJbLm3xLxkUrMtkuvx4LCCKTcuXeNS42JWaVkgn3RJSJQAlHP8C0x9uD52PODDg500picRPBvt"
+const apiKey = import.meta.env.VITE_API_KEY;
 const CartItems= ()=>{
     const {getTotalCartAmount,all_product,cartItems,removeFromCart}=useContext(ShopContext);
-
+    const [Product,setProduct] = useState({
+        name:{cartItems},
+        price:10,
+        productBy:"facebook"
+      })
+      
     //for payment intregation
-    const makepayment= async()=>{
-        const stripe = await loadStripe("pk_test_51OpVHpSIyGZ3BZDjKKoAKQ8IZJbLm3xLxkUrMtkuvx4LCCKTcuXeNS42JWaVkgn3RJSJQAlHP8C0x9uD52PODDg500picRPBvt");
-        
+    const makePayment = token=>{
         const body={
-            products:cartItems
+          token,
+          Product
         }
-        const headers = {
-            "Content-Type":"application/json"
+        const headers={
+          "Content-Type":"application/json"
         }
-        //fetching payment-details from backend
-        //const response = await fetch("http://localhost:4000/create-checkout-session",{
-        const response = await fetch("https://backend3-j9x6.onrender.com/create-checkout-session",{
-            method:"POST",
-            headers:headers,
-            body:JSON.stringify(body)
+    
+        // return fetch(`http://localhost:3000/payment`,{
+        return fetch(`https://backend3-j9x6.onrender.com/payment`,{
+          method:"POST",
+          headers,
+          body:JSON.stringify(body)
         })
-
-        const session = await response.json();
-
-        const result = stripe.redirectToCheckout({
-            sessionId:session.id
+        .then(response=>{
+          console.log("RESPONSE",response)
+          const {status}=response
+          console.log("Status",status);
         })
-        if(result.error){
-            console.log(result.error);
-        }
-    }
+        .catch(error=>console.log(error))
+      }
 
     return (
         <div className="cartitems">
@@ -83,7 +84,17 @@ const CartItems= ()=>{
                         <h3>${getTotalCartAmount()}</h3>
                     </div>
                 </div>
-                <button onClick={makepayment}>PROCEED TO PAYMENT</button>
+                {/* <button >PROCEED TO PAYMENT</button> */}
+                <StripeCheckout 
+                 stripeKey={apiKey}
+                 token={makePayment}
+                 name="Complete Payment"
+                 amount={getTotalCartAmount}
+                 shippingAddress
+                 billingAddress
+                 >
+                   <button className='btn-large blue'>PROCEED TO PAYMENT</button>
+                 </StripeCheckout>
             </div>
             <div className="cartitems-promocode">
                 <p>If you have any promo code, Enter it here</p>

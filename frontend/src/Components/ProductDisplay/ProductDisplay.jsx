@@ -3,6 +3,7 @@ import './ProductDisplay.css'
 import star_icon from "../Assets/star_icon.png"//note do not need to use curly backet link{star_icon} as they return default value
 import star_dull_icon from "../Assets/star_dull_icon.png"
 import { ShopContext } from "../../Context/ShopContext";
+import product_1 from "../Assets/product_1.png";
 
 const ProductDisplay=(props)=>{
     const {product} = props;
@@ -15,6 +16,10 @@ const ProductDisplay=(props)=>{
                    <img src={product.image} alt="" />
                    <img src={product.image} alt="" />
                    <img src={product.image} alt="" />
+                   {/* <img src={product_1} alt="" />
+                   <img src={product_1} alt="" />
+                   <img src={product_1} alt="" />
+                   <img src={product_1} alt="" /> */}
                </div>
                <div className="productdisplay-img">
                    <img className="productdisplay-main-img" src={product.image} alt="" />
