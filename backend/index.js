@@ -12,10 +12,13 @@ const cors=require("cors");//accecss to react project
 const BASE_URL = process.env.BASE_URL
 require('dotenv').config();
 
-const allowedOrigins = ['https://fashion-frenzy-lemon.vercel.app/'];
-app.use(cors({
-  origin: allowedOrigins
-}));
+// const allowedOrigins = ['https://fashion-frenzy-lemon.vercel.app'];
+//const allowedOrigins = ['*']
+// app.use(cors({
+//   origin: allowedOrigins
+// }));
+
+app.use(cors());
 
 // const { error, log } = require("console");
 //const stripe=require("stripe")("sk_test_51OpVHpSIyGZ3BZDjIlASplaGias67Ha2kFvLUs4Qi6zuVF7Glsc04ZppOlzoIUaY7d0QVdWiWVcliMTjQj9i9pxF00YaHPBYqe")
