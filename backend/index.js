@@ -19,14 +19,19 @@ require('dotenv').config();
 //   origin: allowedOrigins
 // }));
 
-const corsOptions = {
-    origin: 'https://fashion-frenzy-lemon.vercel.app'
-};
+// const corsOptions = {
+//     origin: 'https://fashion-frenzy-lemon.vercel.app'
+// };
 
+// app.use(cors(corsOptions));
+const corsOptions = {
+    origin: '*'
+};
 app.use(cors(corsOptions));
 
 // Handle pre-flight requests
-app.options('*', cors(corsOptions));
+// app.options('*', cors(corsOptions));
+
 
 // const { error, log } = require("console");
 //const stripe=require("stripe")("sk_test_51OpVHpSIyGZ3BZDjIlASplaGias67Ha2kFvLUs4Qi6zuVF7Glsc04ZppOlzoIUaY7d0QVdWiWVcliMTjQj9i9pxF00YaHPBYqe")
