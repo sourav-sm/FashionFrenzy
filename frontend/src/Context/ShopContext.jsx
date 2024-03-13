@@ -20,13 +20,13 @@ const ShopContextProvider = (props) =>{
         
         useEffect(()=>{
             // fetch('http://localhost:4000/allproducts')
-            fetch('https://backend3-j9x6.onrender.com/allproducts')
+            fetch('/api/allproducts')
             .then((response)=>response.json())
             .then((data)=>setAll_Product(data))
 
             if(localStorage.getItem('auth-token')){
                 // fetch('http://localhost:4000/getcart',{
-               fetch('https://backend3-j9x6.onrender.com/getcart',{
+               fetch('/api/getcart',{
                     method:'POST',
                     headers:{
                         Accept:'application/form-data',
@@ -43,7 +43,7 @@ const ShopContextProvider = (props) =>{
             setCartItems((prev)=>({...prev,[itemId]:prev[itemId]+1}))
             if(localStorage.getItem('auth-token')){
                 // fetch('http://localhost:4000/addtocart',{
-                fetch('https://backend3-j9x6.onrender.com/addtocart',{
+                fetch('/api/addtocart',{
                     method:'POST',
                     headers:{
                         Accept:'application/form-data',
@@ -61,7 +61,7 @@ const ShopContextProvider = (props) =>{
             setCartItems((prev)=>({...prev,[itemId]:prev[itemId]-1}))
             if(localStorage.getItem('auth-token')){
                  //fetch('http://localhost:4000/removefromcart',{
-                fetch('https://backend3-j9x6.onrender.com/removefromcart',{
+                fetch('/api/removefromcart',{
                     method:'POST',
                     headers:{
                         Accept:'application/form-data',

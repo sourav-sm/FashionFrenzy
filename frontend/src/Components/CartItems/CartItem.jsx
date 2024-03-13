@@ -25,7 +25,7 @@ const CartItems= ()=>{
         }
     
         // return fetch(`http://localhost:3000/payment`,{
-        return fetch(`https://backend3-j9x6.onrender.com/payment`,{
+        return fetch(`/api/payment`,{
           method:"POST",
           headers,
           body:JSON.stringify(body)
