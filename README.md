@@ -32,17 +32,17 @@ To get a local copy up and running, follow these simple steps:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/sourav-sm/FashionFrenzy.git` 
+     git clone https://github.com/sourav-sm/FashionFrenzy.git` 
 
 2.  Navigate to the project directory:
  
-    `cd FashionFrenzy` 
+     `cd FashionFrenzy` 
     
 3.  Install dependencies:
     # For frontend
-    `cd frontend` <br/>
-    `npm i`<br/>
-    `npm run dev`
+       `cd frontend` <br/>
+     `npm i`<br/>
+     `npm run dev`
     
    # For Database
     Create a Mongodb Atlass Url,Next create a .env file in which paste ypur mongodb atlas url and in place of base url http://localhost:4000
@@ -78,5 +78,6 @@ Contributions are what make the open-source community such an amazing place to l
 
 ## Contact
 
+For any questions or suggestions, feel free to open an issue or contact here.
 -   Sourav Mohanta - developersourav135@gmail.com
--   Project Link: https://github.com/yourusername/shopper-website
+-   Project Link: https://sourav-mohanta.vercel.app/
