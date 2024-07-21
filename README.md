@@ -18,7 +18,11 @@ For More INFO Check out This--> [FashioFrenzy](https://fashion-frenzy-lemon.verc
 -  **Frontend**: User-friendly interface for browsing products, adding items to cart, and completing purchases.
 -  **Backend**: Robust server-side application handling API requests, user authentication, and database operations. 
 -  **Admin Panel**: Administrative dashboard for managing products, orders, and user accounts. 
-- **Responsive Design**: Ensures a seamless experience across devices, from desktops to mobile phones.
+- **Responsive Design**: Ensures a seamless experience across devices, from desktops to mobile phones.Visa: 4242 4242 4242 4242
+MasterCard: 5555 5555 5555 4444
+American Express: 3782 822463 10005
+cv 123
+expairy 12/34
 
 ## Technologies Used
   - **Frontend**: React, Vite (for fast development), HTML, CSS, JavaScript 
